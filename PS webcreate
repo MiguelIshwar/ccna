@@ -1,0 +1,1 @@
+New-Website -name "HayupWeb" -HostHeader "www.hayupako12.com" -PhysicalPath "D:\webs\datingbiz" -force
