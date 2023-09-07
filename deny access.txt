@@ -1,0 +1,97 @@
+@Edge
+config t
+no access-list 2
+access-list 2 deny 10.11.0.0 0.0.255.255
+access-list 2 deny 10.21.0.0 0.0.255.255
+access-list 2 deny 10.31.0.0 0.0.255.255
+access-list 2 deny 10.41.0.0 0.0.255.255
+access-list 2 deny 10.51.0.0 0.0.255.255
+access-list 2 deny 10.61.0.0 0.0.255.255
+access-list 2 deny 10.71.0.0 0.0.255.255
+access-list 2 permit any
+int gi 0/0/1
+ip access-group 2 in
+
+@unlock
+int gi 0/0/1
+no ip access-group 2 in
+
+----------
+config t
+no access-list 3
+access-list 3 deny 10.41.0.0 0.0.255.255
+access-list 3 deny 10.51.0.0 0.0.255.255
+access-list 3 deny 10.61.0.0 0.0.255.255
+access-list 3 deny 10.71.0.0 0.0.255.255
+access-list 3 deny 10.42.0.0 0.0.255.255
+access-list 3 deny 10.52.0.0 0.0.255.255
+access-list 3 deny 10.62.0.0 0.0.255.255
+access-list 3 permit any
+int gi 0/0/1
+ip access-group 3 in
+
+@unlock
+int gi 0/0/1
+no ip access-group 3 in
+
+
+--------
+config t
+no access-list 4
+access-list 4 deny 10.31.0.0 0.0.255.255
+access-list 4 deny 10.32.0.0 0.0.255.255
+access-list 4 deny 10.41.0.0 0.0.255.255
+access-list 4 deny 10.42.0.0 0.0.255.255
+access-list 4 deny 10.51.0.0 0.0.255.255
+access-list 4 deny 10.52.0.0 0.0.255.255
+access-list 4 permit any
+int gi 0/0/1
+ip access-group 4 in
+
+@unlock
+int gi 0/0/1
+no ip access-group 4 in
+
+
+
+-------------------
+@if too many deny, use permit
+config t
+no access-list 5
+access-list 5 permit 10.11.0.0 0.0.255.255
+access-list 5 deny Any
+int gi 0/0/1
+ip access-group 5 in
+
+
+
+unlock
+int gi 0/0/1
+no ip access-group 5 in
+
+
+
+@@@@HOW TO CHECK
+sh ip int gi 0/0/1
+sh ip access-list
+
+
+------------
+config t
+no ip access-list standard blockrussia
+ip access-list standard blockrussia 
+deny 10.11.0.0 0.0.255.255
+deny 10.21.0.0 0.0.255.255
+deny 10.31.0.0 0.0.255.255
+deny 10.41.0.0 0.0.255.255
+deny 10.51.0.0 0.0.255.255
+deny 10.61.0.0 0.0.255.255
+deny 10.71.0.0 0.0.255.255
+permit any
+int gi 0/0/1
+ip access-list standard blockrussia in
+
+unlock
+int gi 0/0/1
+no ip access-list standard blockrussia in
+
