@@ -1,0 +1,24 @@
+TASK16: FHRP:First Hop Redundancy Protocol:
+
+        " The Rich Kid Problem!"
+HSRP: hot standby routing protocol: all Cisco SW
+VRRP: virtual router redundancy protocol: any brand
+GLBP: global load balancing protocol: all Cisco Router
+Companies: 2 or 3 telcos:
+
+@TAAS/PLDTinternet:
+config t
+Track 1 Int gi 0/1 line-protocol
+Int vlan 1
+standby 1 ip 10.12.1.6
+standby 1 preempt
+standby 1 Priority 150
+standby 1 Track 1 decrement 60
+
+@BABA
+config t
+Int vlan 1
+standby 1 ip 10.12.1.6
+standby 1 preempt
+standby 1 Priority 100
+do sh standby
