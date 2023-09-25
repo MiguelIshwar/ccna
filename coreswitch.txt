@@ -1,4 +1,4 @@
-@@coretaas
+#uppcoreswitch
 config t
    hostname COREtaas12
    enable secret pass
