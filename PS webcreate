@@ -1,1 +1,1 @@
-New-Website -name "HayupWeb" -HostHeader "www.hayupako12.com" -PhysicalPath "D:\webs\datingbiz" -force
+New-Website -name "webname" -HostHeader "www.websitename.com" -PhysicalPath "D:\webs\folderpath" -force
