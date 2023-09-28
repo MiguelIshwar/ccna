@@ -165,7 +165,7 @@ ip domain-name ccnaexam.com
 username boss privilege 15 secret pass
 crypto key generate rsa
 ip ssh version 2
-
+#sshv2 is 1024 bit modulus
 
 ------------------------------
 exam lab question 3
